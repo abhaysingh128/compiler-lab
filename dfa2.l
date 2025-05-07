@@ -1,47 +1,42 @@
 %{
 #include<stdio.h>
 %}
-
-%s INT DEAD A FLOAT ID
-
+%s S0 S1 S2 S3 DEAD
 %%
+<INITIAL>a BEGIN S1;
+<INITIAL>b BEGIN S2;
+<INITIAL>\n printf("Accepted (even a and even b)\n"); BEGIN INITIAL;
+<INITIAL>[^ab\n] BEGIN DEAD;
 
-<INITIAL>[0-9] BEGIN INT;
-<INITIAL>[a-zA-Z_] BEGIN ID;
-<INITIAL>\n printf("invalid input\n");BEGIN INITIAL;
-<INITIAL>[^0-9a-zA-Z_] BEGIN DEAD;
+<S0>a BEGIN S1;
+<S0>b BEGIN S2;
+<S0>\n printf("Accepted (even a and even b)\n"); BEGIN INITIAL;
+<S0>[^ab\n] BEGIN DEAD;
 
-<INT>[0-9] BEGIN INT ;
-<INT>["."] BEGIN A;
-<INT>\n printf("integer is accepted\n");BEGIN INITIAL;
-<INT>[^0-9\.\n] BEGIN DEAD;
+<S1>a BEGIN S0;
+<S1>b BEGIN S3;
+<S1>\n printf("not accepted (odd a)\n"); BEGIN INITIAL;
+<S1>[^ab\n] BEGIN DEAD;
 
-<A>\n BEGIN INITIAL;printf("invalid input\n") ;
-<A>[0-9] BEGIN FLOAT;
-<A>[^0-9\n] BEGIN DEAD;
+<S2>a BEGIN S3;
+<S2>b BEGIN S0;
+<S2>\n printf("not accepted (odd b)\n"); BEGIN INITIAL;
+<S2>[^ab\n] BEGIN DEAD;
 
-<FLOAT>[0-9] BEGIN FLOAT;
-<FLOAT>[^0-9\n] BEGIN DEAD;
-<FLOAT>\n BEGIN INITIAL;printf("float is accepted\n");
-
-<ID>[a-zA-Z0-9_] BEGIN ID;
-<ID>[^a-zA-Z0-9_\n] BEGIN DEAD;
-<ID>\n BEGIN INITIAL;printf("identifier is accepted\n");
+<S3>a BEGIN S2;
+<S3>b BEGIN S1;
+<S3>\n printf("not accepted (odd a and odd b)\n"); BEGIN INITIAL;
+<S3>[^ab\n] BEGIN DEAD;
 
 <DEAD>[^\n] BEGIN DEAD;
-<DEAD>\n BEGIN INITIAL;printf("invalid input\n");
-
+<DEAD>\n printf("invalid string\n"); BEGIN INITIAL;
 %%
-
-int main()
-{
-
-printf("enter the string\n");
-yylex();
-return 0;
+int yywrap(){
+return 1;
 }
 
-int yywrap()
-{
-return 1;
+int main(){
+printf("Enter a string\n");
+yylex();
+return 0;
 }
