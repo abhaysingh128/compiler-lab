@@ -2,7 +2,7 @@
 #include<stdio.h>
 %}
 
-%s INT DEAD A FLOAT ID
+%s INT A FLOAT ID DEAD
 
 %%
 

@@ -3,10 +3,6 @@
 %}
 %s q0p0 q0p1 q0p2 q1p0 q1p1 q1p2 q2p0 q2p1 q2p2 DEAD
 %%
-<INITIAL>a          BEGIN q1p0;
-<INITIAL>b          BEGIN q0p1;
-<INITIAL>\n         printf("Accepted\n"); BEGIN INITIAL;
-<INITIAL>[^ab\n]    BEGIN DEAD;
 
 <q0p0>a             BEGIN q1p0;
 <q0p0>b             BEGIN q0p1;
