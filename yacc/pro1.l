@@ -1,25 +1,20 @@
 %{  
-#include"y.tab.h"  
+#include"pro1.tab.h"  
 %}  
 %%  
-[0-9]+ {yylval=atoi(yytext); return NUMB;}  
+[0-9]+ {yylval=atoi(yytext); return NUMBER;}  
 [\t\n] {}  
-"+"  
-"-"  
-"*"  
-"/"  
-{return PLUS;}  
-{return MINS;}  
-{return MULT;}  
-{return DIVI;}  
-"("  
-")"  
-.  
+"+"  {return PLUS;} 
+"-"  {return MINUS;}
+"*"  {return MUL;}
+"/"  {return DIV;}
+"("  {return LP;} 
+")"  {return RP;}  
+.    {}
 %%  
 int yywrap()  
 {  
 return 1;  
 }  
-{return LP;}  
-{return RP; 
-}  
+ 
+

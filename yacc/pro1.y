@@ -3,25 +3,31 @@
 #include <stdlib.h>  
 void yyerror(const char *s);  
 int yylex();  
-%}  
-%token MINS DIVI PLUS LP RP MULT NUMB  
+%} 
+
+%token MINUS DIV PLUS LP RP MUL NUMBER 
 %left PLUS MINUS  
-%left MULT DIVI  
+%left MUL DIV 
+
 %%  
 expr:  
-NUMB  
+NUMBER  
 | expr PLUS expr  
-| expr MULT expr  
-| expr MINS expr  
-| expr DIVI expr  
+| expr MUL expr  
+| expr MINUS expr  
+| expr DIV expr  
 | LP expr RP  
 ;  
 %%  
+
 void yyerror(const char *s) {  
-fprintf(stderr, "Error: %s\n", s); }  
+    printf("not valid expression");
+} 
+ 
 int main() {  
 printf("Enter the Expression: ");  
 int x = yyparse();  
 if (x == 0) {  
 printf("Valid Expression!!\n"); }  
-return 0; }  
+return 0; 
+}  

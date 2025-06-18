@@ -68,16 +68,16 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "expr2.y"
+#line 1 "pro2.y"
 
     #include <stdio.h>
     #include <stdlib.h>
-    void yyerror(const char &s);
+    void yyerror(const char *s);
     int yylex();
 
 
 /* Line 189 of yacc.c  */
-#line 81 "expr2.tab.c"
+#line 81 "pro2.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -122,7 +122,7 @@ typedef int YYSTYPE;
 
 
 /* Line 264 of yacc.c  */
-#line 126 "expr2.tab.c"
+#line 126 "pro2.tab.c"
 
 #ifdef short
 # undef short
@@ -1306,35 +1306,35 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 13 "expr2.y"
-    {printf("result is : %d\n",$());;}
+#line 13 "pro2.y"
+    {printf("result is : %d\n",(yyvsp[(1) - (2)]));;}
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 16 "expr2.y"
+#line 16 "pro2.y"
     {(yyval)=(yyvsp[(1) - (3)])+(yyvsp[(3) - (3)]);;}
     break;
 
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 17 "expr2.y"
+#line 17 "pro2.y"
     {(yyval)=(yyvsp[(1) - (3)])-(yyvsp[(3) - (3)]);;}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 18 "expr2.y"
+#line 18 "pro2.y"
     {(yyval)=(yyvsp[(1) - (3)])*(yyvsp[(3) - (3)]);;}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 19 "expr2.y"
+#line 19 "pro2.y"
     {if((yyvsp[(3) - (3)])==0)
               {
                 yyerror("division by zero");
@@ -1346,14 +1346,14 @@ yyreduce:
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 25 "expr2.y"
+#line 25 "pro2.y"
     {(yyval)=(yyvsp[(1) - (1)]);;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1357 "expr2.tab.c"
+#line 1357 "pro2.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1565,9 +1565,15 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 27 "expr2.y"
+#line 27 "pro2.y"
 
-void yyerror(const char &S)
+void yyerror(const char *s)
 {
     fprintf(stderr,"error is %s\n",s);
+}
+int main()
+{
+  printf("enter expression: ");
+  yyparse();
+  return 0;
 }

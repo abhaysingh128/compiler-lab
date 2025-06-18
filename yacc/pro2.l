@@ -1,13 +1,13 @@
-%{  
-#include"y.tab.h"  
-%}  
-%%  
-[0-9]+ {yylval = atoi(yytext);return NUMB;}  
-[\t]+ { }  
-[\n]  
-{return '\n';}  
-[+-/*] {return yytext[0];}  
-%%  
-int yywrap(){  
-return 1;  
-}  
+%{
+#include "pro2.tab.h"
+%}
+%%
+[0-9]+ {yylval= atoi(yytext); return NUMBER;}
+[+ - * /] {return yytext[0];}
+[\n] {return '\n';}
+. {}
+%%
+int yywrap()
+{
+    return 1;
+}

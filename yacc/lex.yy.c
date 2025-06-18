@@ -359,10 +359,10 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "program2.l"
+#line 1 "pro4.l"
 #define INITIAL 0
-#line 2 "program2.l"
-#include "expr2.tab.h"
+#line 2 "pro4.l"
+#include "pro4.tab.h"
 #line 367 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -514,7 +514,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 4 "program2.l"
+#line 4 "pro4.l"
 
 #line 520 "lex.yy.c"
 
@@ -601,27 +601,27 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 5 "program2.l"
-{yylval= atoi(yytext); return NUMBER;}
+#line 5 "pro4.l"
+{yylval= atoi(yytext); return NUMB;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 6 "program2.l"
+#line 6 "pro4.l"
 {return yytext[0];}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 7 "program2.l"
+#line 7 "pro4.l"
 {return '\n';}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 8 "program2.l"
+#line 8 "pro4.l"
 {}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 9 "program2.l"
+#line 9 "pro4.l"
 ECHO;
 	YY_BREAK
 #line 628 "lex.yy.c"
@@ -1510,7 +1510,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 9 "program2.l"
+#line 9 "pro4.l"
 
 int yywrap()
 {
