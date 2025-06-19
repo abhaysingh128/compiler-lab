@@ -282,20 +282,20 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 4
+#define YY_END_OF_BUFFER 5
 static yyconst short int yy_accept[10] =
     {   0,
-        0,    0,    6,    4,    3,    2,    1,    1,    0
+        0,    0,    5,    3,    2,    2,    1,    1,    0
     } ;
 
 static yyconst int yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    3,    1,    1,    1,    3,    4,    4,    4,
+        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    4,    4,    4,
         4,    4,    4,    4,    4,    4,    4,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -359,10 +359,10 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "pro4.l"
+#line 1 "prefix.l"
 #define INITIAL 0
-#line 2 "pro4.l"
-#include "pro4.tab.h"
+#line 2 "prefix.l"
+#include "prefix.tab.h"
 #line 367 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -514,7 +514,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 4 "pro4.l"
+#line 5 "prefix.l"
 
 #line 520 "lex.yy.c"
 
@@ -601,30 +601,25 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 5 "pro4.l"
-{yylval= atoi(yytext); return NUMB;}
+#line 6 "prefix.l"
+{ yylval = atoi(yytext); return NUMB; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 6 "pro4.l"
-{return yytext[0];}
+#line 7 "prefix.l"
+; // skip whitespace
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 7 "pro4.l"
-{return '\n';}
+#line 8 "prefix.l"
+{ return yytext[0]; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 8 "pro4.l"
-{}
-	YY_BREAK
-case 5:
-YY_RULE_SETUP
-#line 9 "pro4.l"
+#line 9 "prefix.l"
 ECHO;
 	YY_BREAK
-#line 628 "lex.yy.c"
+#line 623 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1510,9 +1505,9 @@ int main()
 	return 0;
 	}
 #endif
-#line 9 "pro4.l"
+#line 9 "prefix.l"
 
-int yywrap()
-{
+
+int yywrap() {
     return 1;
 }
